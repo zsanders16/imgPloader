@@ -22,5 +22,12 @@ module.exports = (app) => {
         app.use(errorHandler());
     }
 
+    app.engine('handlebars', exphbs.create({
+        defaultLayout: 'main',
+        layoutsDir: `${app.get('Views')}/layouts`,
+        partialsDir: [`${app.get('Views')}/partials`]
+    }).engine);
+    app.set('View engine', 'handlebars');
+
     return app;
 }
