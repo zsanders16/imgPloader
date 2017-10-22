@@ -1,7 +1,7 @@
 const express = require('express'),
     router = express.Router(),
     home = require('../controllers/home'),
-    image = require('../controlers/image');
+    image = require('../controllers/image');
 
 module.exports = (app) => {
     router.get('/', home.index);
@@ -9,5 +9,5 @@ module.exports = (app) => {
     router.post('/images', image.create);
     router.post('/images/:image_id/like', image.like);
     router.post('/images/:image_id/comment', image.comment);
-    app.user(router);
+    app.use(router);
 }

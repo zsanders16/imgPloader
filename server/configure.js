@@ -21,5 +21,6 @@ module.exports = (app) => {
     if('development' === app.get('env')){
         app.use(errorHandler());
     }
+
     return app;
 }
