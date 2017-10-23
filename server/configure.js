@@ -32,7 +32,9 @@ app.engine('handlebars', exphbs.create({
 app.set('view engine', 'handlebars');
 
 app.use(morgan('dev'));
-//app.use(multer({ dest: path.join(__dirname, 'public/upload/temp')}));
+app.use(multer({
+    dest: path.join(__dirname, 'public/upload/temp')
+}).any());
 app.use(methodOverride());
 app.use(cookieParser('some-secret-value-here'));
 routes(app);
